@@ -33,10 +33,10 @@ class Equation():
         inp = ' '.join(args)
 
         # Replace sup() with superscript
-        inp = regreplace(inp, '(sup\(.+\))', superscriptDict)
+        inp = self.regreplace(inp, '(sup\([\d]+\))', superscriptDict)
 
-        # Replace sup() with superscript
-        inp = regreplace(inp, '(sub\(.+\))', subscriptDict)
+        # Replace sup() with subscript
+        inp = self.regreplace(inp, '(sub\([\d]+\))', subscriptDict)
 
         # replace keywords with their special symbols.
         for word, replace in keywords.items():
@@ -44,19 +44,18 @@ class Equation():
 
         await ctx.send(inp)
 
-    def regreplace(inp, reg, rdict):
+    def regreplace(self, inp, reg, rdict):
         r = re.compile(reg)
-        results = r.finditer(inp)
 
+        results = r.finditer(inp)
         for result in results:
             match = result.group()[4:-1]
             for char in match:
                 if char in rdict:
                     match = match.replace(char, rdict[char])
-
             inp = inp.replace(result.group(), match)
-
         return inp
+
 
 def setup(bot):
     bot.add_cog(Equation(bot))
