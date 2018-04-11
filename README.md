@@ -1,0 +1,1 @@
+"# Equator for Discord" 
