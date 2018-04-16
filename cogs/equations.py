@@ -28,7 +28,7 @@ class Equation():
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["eq","equ"])
     async def equation(self, ctx, *args):
         inp = ' '.join(args)
 
