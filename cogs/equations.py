@@ -9,7 +9,9 @@ import re
 
 keywords = {
     '[equil]': '⇌',
-    '[to]': '→'
+    '[to]': '→',
+    '[e]': '*e⁻*',
+    '[h]': 'H⁺'
 }
 
 superscriptDict = {
