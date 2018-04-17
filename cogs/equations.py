@@ -16,12 +16,14 @@ keywords = {
 
 superscriptDict = {
     '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵',
-    '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '0': '⁰'
+    '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '0': '⁰',
+    '+': '⁺', '-': '⁻'
 }
 
 subscriptDict = {
     '1': '₁', '2': '₂', '3': '₃', '4': '₄', '5': '₅',
-    '6': '₆', '7': '₇', '8': '₈', '9': '₉', '0': '₀'
+    '6': '₆', '7': '₇', '8': '₈', '9': '₉', '0': '₀',
+    '+': '₊', '-': '₋'
 }
 
 
@@ -35,10 +37,10 @@ class Equation():
         inp = ' '.join(args)
 
         # Replace sup() with superscript
-        inp = self.regreplace(inp, '(sup\([\d]+\))', superscriptDict)
+        inp = self.regreplace(inp, '((sup|\^)\([\d\+-]+\))', superscriptDict)
 
         # Replace sup() with subscript
-        inp = self.regreplace(inp, '(sub\([\d]+\))', subscriptDict)
+        inp = self.regreplace(inp, '(sub\([\d\+-]+\))', subscriptDict)
 
         # replace keywords with their special symbols.
         for word, replace in keywords.items():
