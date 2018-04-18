@@ -28,3 +28,8 @@ Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
 `[e]` gives *e⁻*
 
 `[h]` gives H⁺
+
+## Credits
+Code by [Onfe](https://www.onfe.co.uk)
+
+Equator's Discord icon contains art by [Freepik](http://www.freepik.com), licensed by [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
