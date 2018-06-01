@@ -29,7 +29,10 @@ Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
 
 `[h]` gives H⁺
 
+### State Symbols
+Due to limitations with the Unicode standard, and no way to implement HTML-based subscript in discord, state symbols such as Solid, Liquid, Gas and Aqueous are not available at this time.
+
 ## Credits
 Code by [Onfe](https://www.onfe.co.uk)
 
-Equator's Discord icon contains art by [Freepik](http://www.freepik.com), licensed by [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
+Equator's Discord icon contains art by [Freepik](http://www.freepik.com), licensed under [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
