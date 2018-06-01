@@ -11,7 +11,8 @@ keywords = {
     '[equil]': '⇌',
     '[to]': '→',
     '[e]': '*e⁻*',
-    '[h]': 'H⁺'
+    '[h]': 'H⁺',
+    '[oh]': 'OH⁻'
 }
 
 superscriptDict = {
