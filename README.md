@@ -29,8 +29,22 @@ Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
 
 `[h]` gives H⁺
 
+`[oh]` gives OH⁻
+
+### Greek Symbols
+
+`[D]` gives Δ (uppercase delta)
+
+`[d]` gives δ (lowercase delta)
+
+`[pi]` gives π
+
+`[S]` gives Σ
+
 ### State Symbols
 Due to limitations with the Unicode standard, and no way to implement HTML-based subscript in discord, state symbols such as Solid, Liquid, Gas and Aqueous are not available at this time.
+
+TODO: Use tables instead of `xyz` gives xyz.
 
 ## Credits
 Code by [Onfe](https://www.onfe.co.uk)
