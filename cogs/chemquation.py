@@ -120,7 +120,7 @@ class Compound(Token):
             self.value = self.value[startpoint:]
 
         # extract the state, if it exists, using regex.
-        stateRegex = re.search(r"@(s|l|g|aq)", self.value)
+        stateRegex = re.search(r"@(s|l|g|aq|p)", self.value)
         if stateRegex:
             self.state = stateRegex.group(1)
             before = self.value[:stateRegex.start()]
