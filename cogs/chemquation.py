@@ -22,7 +22,7 @@ def equate(inp):
             out.append(parse(m.group(0)[2:-1]))
 
         result = ' '.join(out) + remaining
-        
+
     else:
         # contains only equation, go straight to the parser.
         result = parse(inp)
@@ -72,7 +72,8 @@ class Lookup:
         's': '₍𝓼₎',
         'l': '₍𝓁₎',
         'g': '₍𝓰₎',
-        'aq': '₍𝒶𝓆₎'
+        'aq': '₍𝒶𝓆₎',
+        'p': '₍𝓹₎'
     }
 
 
