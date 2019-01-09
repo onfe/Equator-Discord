@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from . import chemquation
 
 import logging
 
@@ -36,6 +37,14 @@ subscriptDict = {
 class Equation():
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command()
+    async def newequation(self, ctx, *args):
+        inp = ' '.join(args)
+        out = chemquation.equate(inp)
+
+        await ctx.send(out)
+
 
     @commands.command(aliases=["eq","equ"])
     async def equation(self, ctx, *args):
