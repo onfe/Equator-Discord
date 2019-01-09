@@ -6,8 +6,23 @@ def equate(inp):
     m = re.search(r"(#{.+})", inp)
     if m is not None:
         # contains both, split text and equations.
-        print("Mixed input.")
-        pass
+        remaining = inp
+        out = []
+        while True:
+
+            m = re.search(r"(#{.+})", remaining)
+            if not m:
+                # no more equations, break out.
+                break
+
+            if m.start() > 0:
+                out.append(remaining[:m.start()].strip())
+
+            remaining = remaining[m.end():]
+            out.append(parse(m.group(0)[2:-1]))
+
+        result = ' '.join(out) + remaining
+        
     else:
         # contains only equation, go straight to the parser.
         result = parse(inp)
@@ -28,13 +43,13 @@ def parse(eqn):
     return ' '.join(out)
 
 class Lookup:
-    superscriptDict = {
+    superScript = {
         '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵',
         '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '0': '⁰',
         '+': '⁺', '-': '⁻'
     }
 
-    subscriptDict = {
+    subScript = {
         '1': '₁', '2': '₂', '3': '₃', '4': '₄', '5': '₅',
         '6': '₆', '7': '₇', '8': '₈', '9': '₉', '0': '₀',
         '+': '₊', '-': '₋'
@@ -83,7 +98,7 @@ class Element(Token):
         sub = ''
         if self.quantity > 1:
             for char in str(self.quantity):
-                sub = sub + Lookup.subscriptDict[char]
+                sub = sub + Lookup.subScript[char]
 
         return self.value + sub
 
@@ -109,6 +124,13 @@ class Compound(Token):
             self.state = stateRegex.group(1)
             before = self.value[:stateRegex.start()]
             after = self.value[stateRegex.end():]
+            self.value = before + after
+
+        chargeRegex = re.search(r"[+-]\d+", self.value)
+        if chargeRegex:
+            self.charge = int(chargeRegex.group(0))
+            before = self.value[:chargeRegex.start()]
+            after = self.value[chargeRegex.end():]
             self.value = before + after
 
         self.items = self.elementify(self.value)
@@ -140,7 +162,16 @@ class Compound(Token):
         quantity = str(self.quantity) if self.quantity > 1 else ''
         compound = ''.join([str(x) for x in self.items])
         state = Lookup.state[self.state] if self.state else ''
-        return quantity + compound + state
+        if self.charge == 0:
+            charge = ''
+        elif -1 <= self.charge <= 1:
+            charge = Lookup.superScript['+'] if self.charge > 0 else Lookup.superScript['-']
+        else:
+            posNeg = Lookup.superScript['+'] if self.charge > 0 else Lookup.superScript['-']
+            charge = Lookup.superScript[str(abs(self.charge))] + posNeg
+
+
+        return quantity + compound + state + charge
 
 
 
