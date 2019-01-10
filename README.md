@@ -7,45 +7,32 @@ Equator follows a simple syntax designed to be easy to understand.
 
 Call Equator to format an equation with `/equation` or the shorthand `/eq`.
 
-# Equator 0.1 syntax
-Equator 1 is now depreciated. Please use the Equator 0.2 chemquation syntax.
+**Equator v0.1 is now depreciated. Please use the Equator v0.2 (chemquation) syntax below.**
 
 ### Subscript
-`sub( <numbers and/or charge> )`
-e.g. `Clsub(2)` produces Cl₂
-
-Numbers [0-9] and charges [+/-] are replaced with their subscript equivalents.
+Docs coming soon...
 
 ### Superscript
-`sup( <numbers and/or charge> )` (or alias `^( <numbers and/or charge> )`).
-e.g. `Mgsup(2+)` produces Mg²
+Docs coming soon...
 
-Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
-
-### Equilibrium and Reaction arrows
-`=>` | →
-`<=>` | ⇌
-
-### Protons and Electrons
-
-`[e]` gives *e⁻*
-
-`[h]` gives H⁺
-
-`[oh]` gives OH⁻
-
-### Greek Symbols
-
-`[D]` gives Δ (uppercase delta)
-
-`[d]` gives δ (lowercase delta)
-
-`[pi]` gives π
-
-`[S]` gives Σ
+### Symbols and Shorthand
+  In  |  Out  |  Example Input         | Example Output
+:----:|:-----:|:-----------------------|----------------
+ `=>` |   →   | `/eq 2H2 + O2 => 2H2O` | 2H₂ + O₂ → 2H₂O
+ `<=>`|   ⇌   | `/eq A + B <=> AB`     | A + B ⇌ AB
+ `[e]`|  *e⁻* ||
+ `[h]`|   H⁺  ||
+`[oh]`|  OH⁻  ||
+ `[D]`|   Δ   ||
+ `[d]`|   δ   ||
+`[pi]`|   π   ||
+ `[S]`|   Σ   ||
 
 ### State Symbols
+State symbols are going through a major overhaul. Stay tuned.
 
+### Charges
+Docs coming soon...
 
 ## Credits
 Code by [Onfe](https://www.onfe.co.uk)
