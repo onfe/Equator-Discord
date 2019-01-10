@@ -1,10 +1,14 @@
 # Equator for Discord
-A simple bot for Discord, designed to make discussion around equations much less stressful.
+A simple bot for Discord that implements the custom chemquation formatter.  
+Designed to streamline the writing of chemical equations with a keyboard and improves readability.
 
 ## Syntax
 Equator follows a simple syntax designed to be easy to understand.
 
 Call Equator to format an equation with `/equation` or the shorthand `/eq`.
+
+# Equator 0.1 syntax
+Equator 1 is now depreciated. Please use the Equator 0.2 chemquation syntax.
 
 ### Subscript
 `sub( <numbers and/or charge> )`
@@ -19,9 +23,8 @@ e.g. `Mgsup(2+)` produces Mg²
 Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
 
 ### Equilibrium and Reaction arrows
-`[to]` gives →
-
-`[equil]` gives ⇌
+`=>` | →
+`<=>` | ⇌
 
 ### Protons and Electrons
 
@@ -42,9 +45,7 @@ Numbers [0-9] and charges [+/-] are replaced with their superscript equivalents.
 `[S]` gives Σ
 
 ### State Symbols
-Due to limitations with the Unicode standard, and no way to implement HTML-based subscript in discord, state symbols such as Solid, Liquid, Gas and Aqueous are not available at this time.
 
-TODO: Use tables instead of `xyz` gives xyz.
 
 ## Credits
 Code by [Onfe](https://www.onfe.co.uk)
