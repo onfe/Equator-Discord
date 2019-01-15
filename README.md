@@ -14,7 +14,7 @@ Call Equator to format an equation with `/equation` or the alias `/eq`.
 Equator formats equations assuming they are written with correct spacing and capitalisation.  
 An equation is built from compounds (e.g. `H2O`) and symbols (e.g. `=>`), with spaces between each item.
 
-#### Compounds
+### Compounds
 Within each compound, Equator looks for the following attributes:
 - **Quantity** *(Optional)*  
   The integer before the first element denotes the quantity of the compound.  
@@ -31,11 +31,14 @@ Within each compound, Equator looks for the following attributes:
 - **Charge** *(Optional)*  
   Denoted by `+/-<integer>` at the end of the compound. (e.g. `+1`)
 
-#### Elements
+### Elements
 Elements are the foundation of equations in equator. They must start with a capital letter. The quantity of the element is placed after the element. (e.g `Cl2` for a chlorine molecule)
 
 ### Superscript
-Docs coming soon...
+Superscript numbers and signs can be forced when equator wouldn't usually use it with `^( <number or sign> )`.  
+e.g. `E = mc^(2)`
+
+Supported characters: `0123456789+-`
 
 ### Symbols and Shorthand
   In  |  Out  |  Example Input         | Example Output
