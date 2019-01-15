@@ -5,14 +5,14 @@ import re
 def equate(inp):
 
     # Check if the input contains mixed text and equations.
-    m = re.search(r"(#{.+})", inp)
+    m = re.search(r"#{.+}", inp)
     if m is not None:
         # contains both, split text and equations.
         remaining = inp
         out = []
         while True:
 
-            m = re.search(r"(#{.+})", remaining)
+            m = re.search(r"#{.+?}", remaining)
             if not m:
                 # no more equations, break out.
                 break
