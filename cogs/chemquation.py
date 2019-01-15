@@ -32,6 +32,8 @@ def equate(inp):
     return result
 
 def parse(eqn):
+    eqn = regreplace(eqn, r"\^\(\d+\)", Lookup.superScript)
+
     equation = eqn.split()
     out = []
     for word in equation:
@@ -43,6 +45,18 @@ def parse(eqn):
         out.append(comp)
 
     return ' '.join(out)
+
+def regreplace(inp, reg, rdict):
+    r = re.compile(reg)
+
+    results = r.finditer(inp)
+    for result in results:
+        match = result.group()[2:-1]
+        for char in match:
+            if char in rdict:
+                match = match.replace(char, rdict[char])
+        inp = inp.replace(result.group(), match)
+    return inp
 
 class Lookup:
     superScript = {
