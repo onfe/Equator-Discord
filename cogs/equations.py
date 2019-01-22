@@ -38,16 +38,16 @@ class Equation():
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def newequation(self, ctx, *args):
+    @commands.command(aliases=["eq","equ"])
+    async def equation(self, ctx, *args):
         inp = ' '.join(args)
         out = chemquation.equate(inp)
 
         await ctx.send(out)
 
 
-    @commands.command(aliases=["eq","equ"])
-    async def equation(self, ctx, *args):
+    @commands.command(aliases=["eqold"])
+    async def oldequation(self, ctx, *args):
         inp = ' '.join(args)
 
         # Replace sup() with superscript
